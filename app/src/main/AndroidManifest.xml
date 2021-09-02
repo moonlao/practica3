@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sem3">
         <activity
+            android:name=".resActivity"
+            android:exported="true" />
+        <activity
+            android:name=".calcActivity"
+            android:exported="true" />
+        <activity
+            android:name=".bgActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

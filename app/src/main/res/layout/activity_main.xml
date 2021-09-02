@@ -7,70 +7,55 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/titleS1"
+        android:id="@+id/textS1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Configuración de color"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128" />
-
-    <TextView
-        android:id="@+id/descriptionS1"
-        android:layout_width="224dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="40dp"
-        android:text="Seleccione un color de fondo para la aplicación"
-        android:textAlignment="center"
+        android:layout_marginTop="196dp"
+        android:text="Escribe tu nombre para continuar"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleS1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/blueButton"
-        android:layout_width="302dp"
-        android:layout_height="71dp"
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="251dp"
+        android:layout_height="61dp"
         android:layout_marginTop="100dp"
-        android:text="Azul"
-        android:textAllCaps="false"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionS1"
-        app:rippleColor="@color/white" />
+        app:layout_constraintTop_toBottomOf="@+id/textS1" />
 
     <Button
-        android:id="@+id/whiteButton"
-        android:layout_width="302dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="32dp"
-        android:text="Blanco"
+        android:id="@+id/nextBtn"
+        android:layout_width="255dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:text="Continuar"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blueButton"
-        app:rippleColor="@color/white" />
-
-    <Button
-        android:id="@+id/blackButton"
-        android:layout_width="302dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="32dp"
-        android:text="Negro"
-        android:textAllCaps="false"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/whiteButton"
-        app:rippleColor="@color/white" />
+        app:layout_constraintTop_toBottomOf="@+id/nameInput" />
 
+    <Button
+        android:id="@+id/settBtn"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="262dp"
+        android:layout_marginBottom="115dp"
+        android:text="Config"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textS1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
