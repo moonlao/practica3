@@ -1,20 +1,26 @@
 package co.eco.sem3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private TextView textS1;
     private EditText nameInput;
     private Button nextBtn;
     private Button settBtn;
+
+    private ConstraintLayout mainact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,38 +33,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         nextBtn = findViewById(R.id.nextBtn);
         settBtn = findViewById(R.id.settBtn);
 
+        mainact = findViewById(R.id.mainact);
 
+
+        settBtn.setOnClickListener(
+
+                v->{
+                    Intent i = new Intent(this, BgActivity.class);
+                    startActivity(i);
+                }
+        );
+
+        nextBtn.setOnClickListener(
+
+                v->{
+
+                    String userName = nameInput.getText().toString();
+
+
+                    if(userName==null || userName.isEmpty()){
+
+                        Toast.makeText(this,"No ha digitado su nombre",Toast.LENGTH_SHORT).show();
+                    }else{
+
+                        Intent i = new Intent(this, CalcActivity.class);
+                        i.putExtra("nombre", userName);
+                        startActivity(i);
+                        nameInput.setText("");
+
+                    }
+
+                }
+        );
 
     }
 
-
     @Override
-    public void onClick(View view) {
+    protected void onResume() {
+        super.onResume();
 
-        switch (view.getId()){
-
-            case R.id.settBtn:
-
-                Intent i = new Intent(this, bgActivity.class);
-                startActivity(i);
-
-                break;
-
-            case R.id.nextBtn:
-
-                String name = nameInput.getText().toString();
-
-
-
-                Intent e = new Intent(this, calcActivity.class);
-
-                e.putExtra("nombre", name);
-
-
-                startActivity(e);
-
-                break;
-        }
+        SharedPreferences preferences = getSharedPreferences("color", MODE_PRIVATE);
+        String bgColor = preferences.getString("color", "#FFFFFF");
+        mainact.setBackgroundColor(Color.parseColor(bgColor));
 
     }
 }
